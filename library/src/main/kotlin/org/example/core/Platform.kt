@@ -1,9 +1,12 @@
 package org.example.core
 
 interface Platform {
-    val version: String
+    val os: String
+    val jvm: String
 }
 
-class JVMPlatform: Platform {
-    override val version: String = "Java ${System.getProperty("java.version")}"
+class PlatformInfo: Platform {
+    override val os: String
+        get() = System.getProperty("os.name");
+    override val jvm: String = "Java ${System.getProperty("java.version")}"
 }
